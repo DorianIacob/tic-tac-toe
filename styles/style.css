@@ -1,11 +1,11 @@
-@media (min-width: 768px){
-  .container{
-    max-width:50%;
-  }  
+.col {
+  font-size: 5em;
 }
 
-@media (min-width: 992px){
-  .container{
-    max-width:50%;
-  }
+div.col:hover {
+  background-color: #F1E3E3;
+}
+
+.rowalign-items-centerbg-light {
+  height: 7em;
 }
