@@ -41,14 +41,14 @@ function startGame() {
 
 function checkCharacter(id) {
 	if (gameFinish === 0) {
-// Display the appropriate character (X or 0) in the clicked "div" container
+		// Display the appropriate character (X or 0) in the clicked "div" container
 		document.getElementById(id).textContent = playCharacter;
-// Disable all events of the just clicked "div" container
+		// Disable all events of the just clicked "div" container
 		document.getElementById(id).style.pointerEvents = "none";
 		gameTable[id[0] - 1][id[1] - 1] = playCharacter;
 		++stepCounter;
 		if (stepCounter > 4) {
-// Check the main diagonal
+			// Check the main diagonal
 			for (let i = 0, j = 0; i < 3; ++i, ++j) {
 				if ((gameTable[i][j] == "") || (gameTable[i][j] != playCharacter)) {
 					break;
@@ -57,7 +57,7 @@ function checkCharacter(id) {
 					displayWinner();
 				}
 			}
-// Check the secondary diagonal
+			// Check the secondary diagonal
 			for (let i = 0, j = 2; i < 3 && gameFinish === 0; ++i, --j) {
 				if (gameTable[i][j] == "" || gameTable[i][j] != playCharacter) {
 					break;
@@ -66,7 +66,7 @@ function checkCharacter(id) {
 					displayWinner();
 				}
 			}
-// Check rows & columns
+			// Check rows & columns
 			for (let row = 0, column = 0; row < 3 && gameFinish === 0; ++row, ++column) {
 				for (let i = 0; i < 3; ++i) {
 					if (gameTable[i][column] == "" || gameTable[i][column] != playCharacter) {
@@ -86,12 +86,12 @@ function checkCharacter(id) {
 				}
 			}
 		}
-// The equality case
+		// The equality case
 		if (stepCounter === 9 && gameFinish === 0) {
 			instruction1.textContent = "Equality! No one won!"
 			document.getElementById("restartGame").style.display = "block";
 		}
-// Change the play character (mark) alternatively and diplay which player turn is
+		// Change the play character (mark) alternatively and diplay which player turn is
 		if (gameFinish === 0 && stepCounter !== 9) {
 			if (playCharacter === "X") {
 				playCharacter = "0";
@@ -105,7 +105,6 @@ function checkCharacter(id) {
 			}
 		}		
 	}
-
 }
 
 function displayWinner() {
